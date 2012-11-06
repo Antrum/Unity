@@ -2,9 +2,6 @@ using UnityEngine;
 using System.Collections;
 
 public class UnitPlayer : Unit {
-	
-	public float cameraRotX = 0f;
-	public float cameraPitchMax = 45f;
 
 	// Use this for initialization
 	public override void Start () {
@@ -20,13 +17,6 @@ public class UnitPlayer : Unit {
 		// Rotation
 		
 		transform.Rotate (0f, Input.GetAxis ("Mouse X") * turnSpeed * Time.deltaTime, 0f);
-		
-		cameraRotX -= Input.GetAxis ("Mouse Y") * turnSpeed * Time.deltaTime;
-		cameraRotX = Mathf.Clamp(cameraRotX, -cameraPitchMax, cameraPitchMax);
-		
-		
-		Camera.main.transform.forward = transform.forward;
-		Camera.main.transform.Rotate (cameraRotX, 0f, 0f);
 		
 		// Movement
 		

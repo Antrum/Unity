@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DungeonGenerator.cs">
     <Files>
-      <File FileName="Assets/Scripts/DungeonGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DungeonGenerator.cs" Line="99" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

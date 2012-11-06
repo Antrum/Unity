@@ -1,29 +1,66 @@
 using UnityEngine;
 using System.Collections;
 
-public class CameraController : MonoBehaviour
-{
-    public Camera HeroCamera;
-    public float HeroCameraZoomedInDistance;
-    public float HeroCameraZoomedOutDistance;
-    private bool heroCameraZoomedIn = true;
+public class CameraController : MonoBehaviour {
 
-	void Start()
-    {
-        HeroCamera.transform.localPosition = new Vector3(HeroCamera.transform.localPosition.x, HeroCameraZoomedInDistance, HeroCamera.transform.localPosition.z);
+	public Transform[] cameraTargets;
+	int cameraIndex;
+	
+	CameraSettings cameraSettings;
+	
+	public float cameraRotX = 0f;
+	public float turnSpeed = 100f;
+	
+	// Use this for initialization
+	void Start () {
+		
+		cameraSettings = cameraTargets[cameraIndex].GetComponent<CameraSettings> ();
 	}
 	
-	void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Z))
-        {
-            heroCameraZoomedIn = !heroCameraZoomedIn;
-            float newYposition = HeroCameraZoomedInDistance;
-            if (!heroCameraZoomedIn)
-            {
-                newYposition = HeroCameraZoomedOutDistance;
-            }
-            HeroCamera.transform.localPosition = new Vector3(HeroCamera.transform.localPosition.x, newYposition, HeroCamera.transform.localPosition.z);
-        }
+	// Update is called once per frame
+	void Update () {
+		
+		if (Input.GetKeyDown (KeyCode.Tab)) {
+			
+			cameraIndex++;
+			
+			if (cameraIndex >= cameraTargets.Length)
+				cameraIndex = 0;
+			
+			cameraSettings = cameraTargets[cameraIndex].GetComponent<CameraSettings> ();
+		}
+	
+		if (cameraTargets[cameraIndex]) {
+			
+			if (cameraSettings.smoothing == 0f) {
+				
+				transform.position = cameraTargets[cameraIndex].position;
+				
+			} else {
+				
+				transform.position = Vector3.Lerp (transform.position, cameraTargets[cameraIndex].position, Time.deltaTime * cameraSettings.smoothing);
+			}
+			
+			if (cameraSettings.rotatable) {
+				
+				transform.rotation = cameraTargets[cameraIndex].rotation;
+			
+			} else {
+				
+				if (transform.rotation != cameraTargets[cameraIndex].rotation) {
+					
+					transform.rotation = Quaternion.Lerp (transform.rotation, cameraTargets[cameraIndex].rotation, Time.deltaTime * cameraSettings.smoothing);
+				}
+			}
+			
+			if (cameraSettings.rotatable) {
+				
+				cameraRotX -= Input.GetAxis ("Mouse Y") * turnSpeed * Time.deltaTime;
+				cameraRotX = Mathf.Clamp(cameraRotX, -cameraSettings.cameraPitchMax, cameraSettings.cameraPitchMax);
+				
+				//Camera.main.transform.forward = transform.forward;
+				Camera.main.transform.Rotate (cameraRotX, 0f, 0f);
+			}
+		}
 	}
 }

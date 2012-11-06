@@ -11,8 +11,8 @@ public class Unit : MonoBehaviour {
 	
 	public float walkSpeed = 1f;
 	public float runSpeed = 2f;
-	public float turnSpeed = 180f;
 	public float jumpSpeed = 2f;
+	public float turnSpeed = 120f;
 	
 	protected bool jump;
 	protected bool running;
