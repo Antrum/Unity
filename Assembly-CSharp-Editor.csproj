@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{DF5B1960-26DE-D48E-6775-11A0C4F8F19C}</ProjectGuid>
+	<ProjectGuid>{6311E6C6-0A20-383B-320B-694068DE37A5}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -95,19 +95,19 @@
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
      <None Include="Assets\StrumpyShaderEditor\Editor\Resources\Internal\TextureCopy.shader" />
- <Reference Include="Assets\StrumpyShaderEditor\Editor\StrumpyShaderEditor">
- <HintPath>Assets\StrumpyShaderEditor\Editor\StrumpyShaderEditor.dll</HintPath>
- </Reference>
  <Reference Include="Assets\NGUI\DLLs\NGUI">
  <HintPath>Assets\NGUI\DLLs\NGUI.dll</HintPath>
  </Reference>
  <Reference Include="Assets\NGUI\DLLs\Editor\NGUI_Editor">
  <HintPath>Assets\NGUI\DLLs\Editor\NGUI_Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Assets\StrumpyShaderEditor\Editor\StrumpyShaderEditor">
+ <HintPath>Assets\StrumpyShaderEditor\Editor\StrumpyShaderEditor.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{17A6D414-89C5-E49C-35C2-CA0A61622AD3}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
