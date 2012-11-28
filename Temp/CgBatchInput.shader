@@ -1,49 +1,106 @@
-// Upgrade NOTE: replaced 'glstate.matrix.texture[0]' with 'UNITY_MATRIX_TEXTURE0'
-
-Shader "Hidden/TextureCopy"
+Shader "Unlit/Masked Colored"
 {
-	Properties 
+	Properties
 	{
-		_MainTex("Main Texture", 2D) = "white" {}
+		_MainTex ("Base (RGB) Mask (A)", 2D) = "white" {}
+		_Color ("Tint Color", Color) = (1,1,1,1)
 	}
 	
 	SubShader
 	{
-	Tags
+		Tags
 		{
-			"Queue"="Background-999"
+			"Queue" = "Transparent"
+			"IgnoreProjector" = "True"
+			"RenderType" = "Transparent"
 		}
+		
+		LOD 200
+		Cull Off
+		Lighting Off
+		ZWrite Off
+		Fog { Mode Off }
+		ColorMask RGB
+		Blend Off
+		
 		Pass
 		{
-			ZTest Always 
-			Cull Off 
-			ZWrite Off
-			Fog { Mode off }
-			Blend Off
-		
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#pragma fragmentoption ARB_precision_hint_fastest 
+			#pragma fragmentoption ARB_precision_hint_fastest
+
 			#include "UnityCG.cginc"
+
+			sampler2D _MainTex;
+			fixed4 _Color;
 			
-			uniform float4 _MainTex_TexelSize;
-			v2f_img vert(appdata_img v)
+			struct appdata_t
 			{
-				v2f_img o;
-				o.pos = v.vertex;
-				o.uv = MultiplyUV (UNITY_MATRIX_TEXTURE0, v.texcoord);				
-				return o;
-			}	
+				float4 vertex : POSITION;
+				fixed4 color : COLOR;
+				float2 texcoord : TEXCOORD0;
+			};
+
+			struct v2f
+			{
+				float4 vertex : POSITION;
+				fixed4 color : COLOR;
+				float2 texcoord : TEXCOORD0;
+			};
 			
-			uniform sampler2D _MainTex;
-			float4 frag (v2f_img i) : COLOR
-			{	
-				return tex2D(_MainTex, i.uv);
+			float4 _MainTex_ST;
+
+			v2f vert (appdata_t v)
+			{
+				v2f o;
+				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.color = v.color;
+				o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
+				return o;
+			}
+
+			fixed4 frag (v2f i) : COLOR
+			{
+				half4 col = tex2D(_MainTex, i.texcoord) * i.color;
+				return half4( lerp(col.rgb, col.rgb * _Color.rgb, col.a), col.a );
 			}
 			ENDCG
 		}
 	}
 	
-	Fallback off
+	SubShader
+	{
+		Tags
+		{
+			"Queue" = "Transparent"
+			"IgnoreProjector" = "True"
+			"RenderType" = "Transparent"
+		}
+		
+		LOD 100
+		Cull Off
+		Lighting Off
+		ZWrite Off
+		Fog { Mode Off }
+		ColorMask RGB
+		AlphaTest Greater .01
+		Blend Off
+		
+		Pass
+		{
+			ColorMaterial AmbientAndDiffuse
+			
+			SetTexture [_MainTex]
+			{
+				Combine Texture * Primary
+			}
+			
+			SetTexture [_MainTex]
+			{
+				ConstantColor [_Color]
+				Combine Previous * Constant
+			}
+		}
+	}
 }

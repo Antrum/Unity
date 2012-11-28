@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{EE37D9F5-A939-B620-B77C-336A52DED6AA}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-UnityScript-Editor</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_3_5_5;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_OSX;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW;ENABLE_SUBSTANCE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Packs\AngryBots\Editor\RenderCubemapWizard.js" />
+     <Compile Include="Assets\Packs\AngryBots\Editor\SkyBoxGenerator.js" />
+     <Compile Include="Assets\Packs\AngryBots\Editor\deactivateMeshRenderers.js" />
+     <Compile Include="Assets\Packs\AngryBots\Scripts\Editor\PatrolPointEditor.js" />
+     <Compile Include="Assets\Packs\AngryBots\Scripts\Editor\PatrolRouteConnector.js" />
+     <Compile Include="Assets\Packs\AngryBots\Scripts\Editor\PatrolRouteEditor.js" />
+     <Compile Include="Assets\Packs\AngryBots\Scripts\Editor\ReplacePrefabInstances.js" />
+     <Compile Include="Assets\Packs\AngryBots\Scripts\Editor\SampleAnimationOnSelected.js" />
+     <Compile Include="Assets\Packs\AngryBots\Scripts\Editor\UseOnlyUnlitShaders.js" />
+     <None Include="Assets\Packs\NGUI\Resources\Shaders\Depth.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\Rain.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\RealtimeReflectionInWaterFlow.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\Cursor.shader" />
+     <None Include="Assets\Packs\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
+     <None Include="Assets\Packs\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\ParticleAdditiveBlend.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\AdditiveBlend.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\RealtimeReflectionReplacement.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\Additive.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\ReflectiveBackgroundArbitrary.shader" />
+     <None Include="Assets\Packs\NGUI\Resources\Shaders\Unlit - Masked Colored.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\ReflectiveBackgroundSelfIllumination.shader" />
+     <None Include="Assets\Packs\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
+     <None Include="Assets\Packs\AngryBots\Resources\HeightDepthOfField.shader" />
+     <None Include="Assets\Packs\AngryBots\Resources\BlurPassesForDof.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\ScreenRefract.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\RainSplash.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\Fallback.shader" />
+     <None Include="Assets\Packs\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\Multiply.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\Blend.shader" />
+     <None Include="Assets\Packs\NGUI\Resources\Shaders\Unlit - Transparent Colored (AlphaClip).shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\HeightFogBeforeTransparent.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\CharacterSelfIlluminationReflective.shader" />
+     <None Include="Assets\Packs\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
+     <None Include="Assets\Packs\AngryBots\Resources\ColoredNoise.shader" />
+     <None Include="Assets\Packs\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\InterlacePatternBlend.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\PlanarRealtimeReflection.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\ReflectiveBackgroundPlanar.shader" />
+     <None Include="Assets\Packs\FogOfWar\FogOfWar.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\EnemySelfIlluminationReflective.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\AngryInclude.cginc" />
+     <None Include="Assets\Packs\AngryBots\Resources\MobileBloom.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\ParticleMultiply.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\ParticleAdditive.shader" />
+     <None Include="Assets\Packs\NGUI\ReadMe.txt" />
+     <None Include="Assets\Packs\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\Packs\NGUI\Resources\Shaders\Unlit - Transparent Colored (HardClip).shader" />
+     <None Include="Assets\Packs\NGUI\Resources\Shaders\Unlit - Transparent Colored Overlay.shader" />
+     <None Include="Assets\Packs\NGUI\Examples\Other\English.txt" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\AlphaCutoutCheapFallback.shader" />
+     <None Include="Assets\Packs\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed).shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\LaserScope.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\BackgroundAndCharacters\SuperSimpleSelfIllumination.shader" />
+     <None Include="Assets\Packs\StrumpyShaderEditor\Editor\Resources\Internal\Temp\TempShader.shader" />
+     <None Include="Assets\Packs\NGUI\Resources\Shaders\Unlit - Additive Colored.shader" />
+     <None Include="Assets\Packs\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
+     <None Include="Assets\Packs\NGUI\Examples\Shaders\Refractive.shader" />
+     <None Include="Assets\Packs\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\ParticleBlend.shader" />
+     <None Include="Assets\Packs\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
+     <None Include="Assets\Packs\StrumpyShaderEditor\Editor\Resources\Internal\TextureCopy.shader" />
+     <None Include="Assets\Packs\AngryBots\Shaders\Fx\InterlacePatternAdditive.shader" />
+     <None Include="Assets\TerrainToolkit\Read me.txt" />
+ <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript">
+ <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\Packs\NGUI\DLLs\NGUI">
+ <HintPath>Assets\Packs\NGUI\DLLs\NGUI.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\Packs\NGUI\DLLs\Editor\NGUI_Editor">
+ <HintPath>Assets\Packs\NGUI\DLLs\Editor\NGUI_Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\Packs\StrumpyShaderEditor\Editor\StrumpyShaderEditor">
+ <HintPath>Assets\Packs\StrumpyShaderEditor\Editor\StrumpyShaderEditor.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
