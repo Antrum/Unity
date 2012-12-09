@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class UnitPlayer : Unit {
-
+	
 	// Use this for initialization
 	public override void Start () {
 	
@@ -13,12 +13,6 @@ public class UnitPlayer : Unit {
 	
 	// Update is called once per frame
 	public override void Update () {
-		
-		// Rotation
-		
-		transform.Rotate (0f, Input.GetAxis ("Mouse X") * turnSpeed * Time.deltaTime, 0f);
-		
-		// Movement
 		
 		move = new Vector3(Input.GetAxis ("Horizontal"), 0f, Input.GetAxis ("Vertical"));
 		

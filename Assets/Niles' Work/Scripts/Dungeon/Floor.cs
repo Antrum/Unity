@@ -40,6 +40,7 @@ public class Floor {
 	public List<Room> allRooms = new List<Room> ();
 	public List<Entrance> allEntrances = new List<Entrance> ();
 	public List<Corridor> allCorridors = new List<Corridor> ();
+	public List<Chest> allChests = new List<Chest> ();
 	
 	public bool reflectRoomsX = false;
 	public bool reflectRoomsZ = false;

@@ -1,14 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Niles' Work/Scripts/DungeonGeneration/SceneryGenerator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Niles' Work/Scripts/Items/Potion.cs">
     <Files>
-      <File FileName="Assets/Niles' Work/Scripts/DungeonGeneration/RoomGenerator.cs" Line="50" Column="3" />
-      <File FileName="Assets/Niles' Work/Scripts/DungeonGeneration/FloorGenerator.cs" Line="172" Column="28" />
-      <File FileName="Assets/Niles' Work/Scripts/DungeonGeneration/SceneryGenerator.cs" Line="69" Column="21" />
-      <File FileName="Assets/Niles' Work/Scripts/TerrainGeneration/TerrainGenerator.cs" Line="26" Column="48" />
-      <File FileName="Assets/Niles' Work/Scripts/Dungeon/Floor.cs" Line="25" Column="44" />
-      <File FileName="Assets/Niles' Work/Scripts/TerrainGeneration/TerrainCarver.cs" Line="119" Column="4" />
-      <File FileName="Assets/Niles' Work/Scripts/DungeonGeneration/DungeonGenerator.cs" Line="203" Column="38" />
+      <File FileName="Assets/Niles' Work/Scripts/Items/Potion.cs" Line="8" Column="2" />
+      <File FileName="Assets/Niles' Work/Scripts/Items/Scroll.cs" Line="8" Column="16" />
+      <File FileName="Assets/Niles' Work/Scripts/Items/Weapon.cs" Line="9" Column="29" />
+      <File FileName="Assets/Niles' Work/Scripts/Items/Armour.cs" Line="27" Column="34" />
+      <File FileName="Assets/Niles' Work/Scripts/Items/Item.cs" Line="10" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -2,7 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
-
+	
+	public Transform player;
+	
 	public Transform[] cameraTargets;
 	int cameraIndex;
 	
@@ -32,34 +34,41 @@ public class CameraController : MonoBehaviour {
 	
 		if (cameraTargets[cameraIndex]) {
 			
-			if (cameraSettings.smoothing == 0f) {
+			if (cameraSettings.newCameraType) {
 				
-				transform.position = cameraTargets[cameraIndex].position;
-				
-			} else {
-				
-				transform.position = Vector3.Lerp (transform.position, cameraTargets[cameraIndex].position, Time.deltaTime * cameraSettings.smoothing);
 			}
 			
-			if (cameraSettings.rotatable) {
+			else {
 				
-				transform.rotation = cameraTargets[cameraIndex].rotation;
-			
-			} else {
+				if (cameraSettings.smoothing == 0f) {
 				
-				if (transform.rotation != cameraTargets[cameraIndex].rotation) {
+					transform.position = cameraTargets[cameraIndex].position;
 					
-					transform.rotation = Quaternion.Lerp (transform.rotation, cameraTargets[cameraIndex].rotation, Time.deltaTime * cameraSettings.smoothing);
+				} else {
+					
+					transform.position = Vector3.Lerp (transform.position, cameraTargets[cameraIndex].position, Time.deltaTime * cameraSettings.smoothing);
 				}
-			}
-			
-			if (cameraSettings.rotatable) {
 				
-				cameraRotX -= Input.GetAxis ("Mouse Y") * turnSpeed * Time.deltaTime;
-				cameraRotX = Mathf.Clamp(cameraRotX, -cameraSettings.cameraPitchMax, cameraSettings.cameraPitchMax);
+				if (cameraSettings.rotatable) {
+					
+					transform.rotation = cameraTargets[cameraIndex].rotation;
 				
-				//Camera.main.transform.forward = transform.forward;
-				Camera.main.transform.Rotate (cameraRotX, 0f, 0f);
+				} else {
+					
+					if (transform.rotation != cameraTargets[cameraIndex].rotation) {
+						
+						transform.rotation = Quaternion.Lerp (transform.rotation, cameraTargets[cameraIndex].rotation, Time.deltaTime * cameraSettings.smoothing);
+					}
+				}
+				
+				if (cameraSettings.rotatable) {
+					
+					cameraRotX -= Input.GetAxis ("Mouse Y") * turnSpeed * Time.deltaTime;
+					cameraRotX = Mathf.Clamp(cameraRotX, -cameraSettings.cameraPitchMax, cameraSettings.cameraPitchMax);
+					
+					//Camera.main.transform.forward = transform.forward;
+					Camera.main.transform.Rotate (cameraRotX, 0f, 0f);
+				}
 			}
 		}
 	}
