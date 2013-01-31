@@ -6,7 +6,9 @@ public class PotionManager : MonoBehaviour {
 	
 	protected ItemManager itemManager;
 	
-	public List<Potion> allPotions = new List<Potion> ();
+	[HideInInspector] public List<Potion> allPotions = new List<Potion> ();
+	
+	public int sellFraction = 4;
 	
 	public void PrintAllPotions () {
 		
@@ -31,10 +33,20 @@ public class PotionManager : MonoBehaviour {
 		else {
 			
 			print (potion.name
-				+ " - Buy price: " 
+			+ " - Buy price: " 
 			+ potion.price 
 			+ ", Sell price: " 
 			+ potion.sellPrice ());
+		}
+	}
+	
+	public void UsePotion (Stats stats, Potion potion) {
+		
+		if (potion.type == PotionType.Health) {
+			
+			int heal = (int)((float)stats.maxHealth * (float)potion.healPercentage / 100);
+			
+			stats.Heal (heal);
 		}
 	}
 	
@@ -42,13 +54,13 @@ public class PotionManager : MonoBehaviour {
 		
 		Potion potion;
 		
-		potion = new Potion ("Diluted health potion", PotionType.Health);
+		potion = new Potion ("Diluted Health Potion", PotionType.Health);
 		potion.healPercentage = 25;
 		AddPotion (potion);
-		potion = new Potion ("Health potion", PotionType.Health);
+		potion = new Potion ("Health Potion", PotionType.Health);
 		potion.healPercentage = 50;
 		AddPotion (potion);
-		potion = new Potion ("Full health potion", PotionType.Health);
+		potion = new Potion ("Full Health Potion", PotionType.Health);
 		potion.healPercentage = 100;
 		AddPotion (potion);
 		potion = new Potion ("Antidote", PotionType.Antidote);
@@ -65,14 +77,15 @@ public class PotionManager : MonoBehaviour {
 		else potion.price = 100;
 	}
 	
-	protected void AddPotion (Potion potion) {
+	public void AddPotion (Potion potion) {
 		
+		potion.sellFraction = sellFraction;
 		CalculatePrice (potion);
 		itemManager.allItems.Add (potion);
 		allPotions.Add (potion);
 	}
 	
-	protected void RemovePotion (Potion potion) {
+	public void RemovePotion (Potion potion) {
 		
 		itemManager.allItems.Remove (potion);
 		allPotions.Remove (potion);

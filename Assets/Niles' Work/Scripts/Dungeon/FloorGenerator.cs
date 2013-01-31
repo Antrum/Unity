@@ -36,6 +36,8 @@ public class FloorGenerator : MonoBehaviour {
 	protected TerrainGenerator terrainGenerator;
 	protected TerrainTextureGenerator textureGenerator;
 	
+	public ShopManager shopManager;
+	
 	// VARIABLES:
 	
 	/// <summary>
@@ -127,8 +129,8 @@ public class FloorGenerator : MonoBehaviour {
 		// Order the algorithms needed to generate the floor
 		BlockEdges (floor);
 		
-		//stairsGenerator.GenerateStairsUp (floor);
-		//stairsGenerator.GenerateStairsDown (floor);
+		stairsGenerator.GenerateStairsUp (floor);
+		stairsGenerator.GenerateStairsDown (floor);
 		roomGenerator.GenerateAllRooms (floor);
 		entranceGenerator.GenerateAllEntrances (roomGenerator.roomList, floor);
 		corridorGenerator.StartNewCorridor ();
@@ -142,6 +144,8 @@ public class FloorGenerator : MonoBehaviour {
 		corridorGenerator.CleanDeadEnds ();
 		entranceGenerator.CleanDeadEntrances ();
 		perimeterGenerator.ConvertToDungeonPerimeter ();
+		
+		shopManager.InstantiateShop (shopManager.allShops[0]);
 		
 		//chestGenerator.GenerateChests (floor);
 		
@@ -186,8 +190,8 @@ public class FloorGenerator : MonoBehaviour {
 		if (reflectEntrancesZ == 1) floor.reflectEntrancesZ = true; else floor.reflectEntrancesZ = false;
 		
 		// Used for bug hunting
-		floor.reflectRoomsX = true;
-		floor.reflectRoomsZ = true;
+		floor.reflectRoomsX = false;
+		floor.reflectRoomsZ = false;
 		floor.reflectEntrancesX = true;
 		floor.reflectEntrancesZ = true;
 		floor.type = FloorType.Dungeon;

@@ -71,7 +71,11 @@
      <Compile Include="Assets\Niles&apos; Work\Scripts\Dungeon\Void.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Dungeon\VoidCluster.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Dungeon\VoidGenerator.cs" />
+     <Compile Include="Assets\Niles&apos; Work\Scripts\Equips\Equip.cs" />
+     <Compile Include="Assets\Niles&apos; Work\Scripts\Equips\EquipManager.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\HUDFPS.cs" />
+     <Compile Include="Assets\Niles&apos; Work\Scripts\Inventories\Inventory.cs" />
+     <Compile Include="Assets\Niles&apos; Work\Scripts\Inventories\InventoryManager.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Items\Armour.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Items\ArmourManager.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Items\Chest.cs" />
@@ -89,10 +93,15 @@
      <Compile Include="Assets\Niles&apos; Work\Scripts\Items\Weapons\Pommel.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Items\Weapons\Sword.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Items\Weapons\SwordGenerator.cs" />
+     <Compile Include="Assets\Niles&apos; Work\Scripts\Shops\Shop.cs" />
+     <Compile Include="Assets\Niles&apos; Work\Scripts\Shops\ShopManager.cs" />
+     <Compile Include="Assets\Niles&apos; Work\Scripts\Stats\Stats.cs" />
+     <Compile Include="Assets\Niles&apos; Work\Scripts\Stats\StatsManager.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Terrain\TerrainCarver.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Terrain\TerrainGenerator.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Terrain\TerrainPerlinNoise.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Terrain\TerrainTextureGenerator.cs" />
+     <Compile Include="Assets\Niles&apos; Work\Scripts\Transform\TransformManager.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Units\Hero.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Units\LookAtMouse.cs" />
      <Compile Include="Assets\Niles&apos; Work\Scripts\Units\Unit.cs" />

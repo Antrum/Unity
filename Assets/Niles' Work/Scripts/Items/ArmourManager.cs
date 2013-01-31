@@ -6,12 +6,16 @@ public class ArmourManager : MonoBehaviour {
 	
 	protected ItemManager itemManager;
 	
+	[HideInInspector]
 	public List<Armour> allArmour = new List<Armour> ();
+	
+	public float ramp = 2.0f;
+	public int sellFraction = 4;
 	
 	public void PrintAllArmour () {
 		
 		foreach (Armour armour in allArmour) {
-			
+			if (armour.type == ArmourType.Chest)
 			PrintArmour (armour);
 		}
 	}
@@ -44,7 +48,7 @@ public class ArmourManager : MonoBehaviour {
 		
 		armour = new Armour (name + " Boots", ArmourType.Boots, level);
 		AddArmour (armour);
-		armour = new Armour (name + " Chest", ArmourType.Chest, level);
+		armour = new Armour (name + " Chestplate", ArmourType.Chest, level);
 		AddArmour (armour);
 		armour = new Armour (name + " Helmet", ArmourType.Helmet, level);
 		AddArmour (armour);
@@ -57,14 +61,18 @@ public class ArmourManager : MonoBehaviour {
 		armour.price = armour.defenceBoost * 20;
 	}
 	
-	protected void AddArmour (Armour armour) {
+	public void AddArmour (Armour armour) {
 		
+		armour.ramp = ramp;
+		armour.CalculateDefenceBoost ();
+		armour.sellFraction = sellFraction;
 		CalculatePrice (armour);
+		
 		itemManager.allItems.Add (armour);
 		allArmour.Add (armour);
 	}
 	
-	protected void RemoveArmour (Armour armour) {
+	public void RemoveArmour (Armour armour) {
 		
 		itemManager.allItems.Remove (armour);
 		allArmour.Remove (armour);

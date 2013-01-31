@@ -16,20 +16,29 @@ public class Armour : Item {
 		name = setName;
 		type = setType;
 		level = setLevel;
-		
-		defenceBoost = baseDefenceBoost ()* (int)Mathf.Pow(2.0f, (float)level);
 	}
 	
 	public ArmourType type;
 	public int level;
 	public int defenceBoost;
+	public float ramp = 2.0f;
+	
+	public void CalculateDefenceBoost () {
+		
+		defenceBoost = (int)((float)baseDefenceBoost ()* Mathf.Pow (ramp, (float)level));
+	}
+	
+	public int baseStatBoots = 10;
+	public int baseStatChest = 50;
+	public int baseStatHelmet = 20;
+	public int baseStatLegs = 30;
 	
 	public int baseDefenceBoost () {
 		
-		if (type == ArmourType.Boots) return 1;
-		else if (type == ArmourType.Chest) return 5;
-		else if (type == ArmourType.Helmet) return 2;
-		else return 3;
+		if (type == ArmourType.Boots) return baseStatBoots;
+		else if (type == ArmourType.Chest) return baseStatChest;
+		else if (type == ArmourType.Helmet) return baseStatHelmet;
+		else return baseStatLegs;
 	}
 	
 	public override void Start () {

@@ -41,10 +41,10 @@ public class MetaStateManager : MonoBehaviour
             pendingNewMetaState = MetaState.None;
         }
 		
-		if (currentMetaState == MetaState.Dungeon) {
-			Screen.showCursor = false;
-		} else {
-			Screen.showCursor = true;
-		}
+//		if (currentMetaState == MetaState.Dungeon) {
+//			Screen.showCursor = false;
+//		} else {
+//			Screen.showCursor = true;
+//		}
 	}
 }

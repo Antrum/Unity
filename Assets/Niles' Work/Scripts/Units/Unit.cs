@@ -1,9 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent (typeof (CharacterController))]
 
 public class Unit : MonoBehaviour {
+	
+	public Inventory inventory;
+	public Equip equip;
+	public Stats stats;
 	
 	protected CharacterController control;
 	

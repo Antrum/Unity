@@ -9,6 +9,8 @@ public class SceneryGenerator : MonoBehaviour {
 
 	private DungeonGenerator dungeonGenerator;
 	
+	public Transform shopPrefab;
+	
 	public Transform Cell_Nothing;
 	public Transform Cell_Empty;
 	public Transform Cell_Floor;
@@ -95,6 +97,28 @@ public class SceneryGenerator : MonoBehaviour {
             }
         }
     }
+	
+	public void InstantiateShop (Shop shop) {
+		
+		print (shop.location.x);
+		
+	    float instantiateXPosition = transform.position.x + (shop.location.x * prefabCellWidth);
+		float instantiateYPosition = transform.position.y - (shop.location.y * floorHeight);
+	    float instantiateZPosition = transform.position.z + (shop.location.z * prefabCellHeight);
+		
+	    shop.transform = (Transform)Instantiate(shopPrefab, new Vector3(instantiateXPosition, instantiateYPosition, instantiateZPosition), Quaternion.identity);
+		
+		//shop.transform.animation.Play ("Take 001");
+		shop.transform.animation.Rewind ("Take 001");
+		shop.transform.animation.Stop ("Take 001");
+		if (shop.transform.animation.IsPlaying("Take 001")) {
+			
+			print ("playing animation");
+		}
+		
+		
+		print (shop.transform.position.x + " " + shop.transform.position.y + " " + shop.transform.position.z);
+	}
 	
 	public void InstantiateChests (List<Chest> allChests) {
 		
